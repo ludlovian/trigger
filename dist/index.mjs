@@ -1,2 +1,14 @@
-export default function(){var e,n,r=new Promise(function(r,t){e=r,n=t});return r.fire=e,r.cancel=n,r}
+function trigger () {
+  let _fire;
+  let _cancel;
+  const trigger = new Promise((resolve, reject) => {
+    _fire = resolve;
+    _cancel = reject;
+  });
+  trigger.fire = _fire;
+  trigger.cancel = _cancel;
+  return trigger
+}
+
+export default trigger;
 //# sourceMappingURL=index.mjs.map
