@@ -6,6 +6,7 @@
   "module": "dist/index.mjs",
   "source": "src/index.js",
   "scripts": {
+    "clean": "rm -rf dist/ coverage/ .nyc_output/ node_modules/.cache/",
     "format": "prettier-standard \"src/**/*.js\" \"test/**/*.js\"",
     "lint": "standard \"src/**/*.js\" \"test/**/*,js\"| snazzy",
     "test": "nyc ava",

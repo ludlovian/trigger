@@ -1,20 +1,21 @@
 'use strict'
 
 import test from 'ava'
-import trigger from '../src'
+import Trigger from '../src'
 
 const delay = x => new Promise(resolve => setTimeout(resolve, x))
 
 test('create trigger', async t => {
-  const trg = trigger()
+  const trg = new Trigger()
 
   t.true(trg instanceof Promise)
+  t.true(trg instanceof Trigger)
   t.is(typeof trg.fire, 'function')
   t.is(typeof trg.cancel, 'function')
 })
 
 test('firing with a value', async t => {
-  const trg = trigger()
+  const trg = new Trigger()
   let count = 0
   let value
   const cleanup = trg.then(v => {
@@ -44,7 +45,7 @@ test('firing with a value', async t => {
 })
 
 test('cancel', async t => {
-  const trg = trigger()
+  const trg = new Trigger()
 
   let count = 0
   let reason
