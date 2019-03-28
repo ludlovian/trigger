@@ -5,13 +5,13 @@ A simple version of a `defer`
 
 ## API
 
-`t = trigger()`
+`t = new Trigger()`
 
 Produces a trigger, which is an unresolved native `Promise`, with two methods attached for later resolution/rejection.
 This allows you to schedule code as follows:
 
 ```
-t = trigger()
+t = new Trigger()
 t.then(<do something later>)
 ...
 [some time later]
